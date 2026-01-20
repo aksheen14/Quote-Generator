@@ -1,3 +1,13 @@
+/* foreground */
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 50px;
+
+}
+
 body{
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -11,15 +21,7 @@ body{
     align-items: flex-start;   
 }
 
-h1{
-    text-align: center;
-    margin-bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 50px;
-
-}
-
+/* inside container */
 #quote{
     font-size: 35px;
     font-weight: bold;
@@ -35,6 +37,7 @@ h1{
     font-style: italic;
     margin-left: 10vw;
 }
+
 button{
     padding: 10px 20px;
     font-size: 16px;
@@ -58,19 +61,7 @@ button:hover{
   margin-right: 50px
 }
 
-@keyframes twinkle {
-  0%   { opacity: 0; }
-  30%  { opacity: 1; }
-  70%  { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-@keyframes shooting {
-  0%   { opacity: 0; transform: translate(0px, 0px);}
-  30%  { opacity: 1; }
-  70%  { opacity: 1; }
-  100% { opacity: 0; transform: translate(var(--dx), var(--dy)); }
-}
+/* background */
 
 #stars {
     position: fixed;
@@ -80,6 +71,23 @@ button:hover{
     top: 0;
     left: 0;
 }
+
+.star {
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    background: whitesmoke;
+    border-radius: 75%;
+    animation: twinkle infinite;
+}
+
+@keyframes twinkle {
+  0%   { opacity: 0; }
+  30%  { opacity: 1; }
+  70%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 .shootingstar{
     position: absolute;
     animation: shooting 1s linear forwards;
@@ -89,11 +97,10 @@ button:hover{
     border-radius: 75%;
     transform-origin: left center;
 }
-.star {
-    position: absolute;
-    height: 5px;
-    width: 5px;
-    background: whitesmoke;
-    border-radius: 75%;
-    animation: twinkle infinite;
+
+@keyframes shooting {
+  0%   { opacity: 0; transform: translate(0px, 0px);}
+  30%  { opacity: 1; }
+  70%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--dx), var(--dy)); }
 }

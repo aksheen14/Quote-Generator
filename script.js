@@ -6,7 +6,7 @@ const authorImage = document.getElementById("author-image");
 
 const API_KEY = "1pXAljDOMJ8ozH2p96spbfwdAsT3OQ9vea9AcsiT";
 const API_URL = "https://api.api-ninjas.com/v2/randomquotes";
-
+//generates the quote from API
 async function generateQuote() {
     try{
         const response = await fetch("https://api.api-ninjas.com/v2/randomquotes", {
@@ -27,7 +27,7 @@ async function generateQuote() {
     }
 }
 
-
+//fetches author image from wikipedia
 async function fetchAuthorImage(author) {
     try {
         const formattedAuthor = author.replaceAll(" ", "_");
@@ -47,7 +47,6 @@ genQuoteBtn.addEventListener("click", generateQuote);
 generateQuote();
 
 // Star animation
-
 function createStar() {
     const star = document.createElement("div");
     star.classList.add("star");
@@ -61,10 +60,9 @@ function createStar() {
     }, 5000);
 
 }
-
 setInterval(createStar, 10);
-//shooting star animation
 
+//shooting star animation
 function createShootingStar() {
     const shootingstar = document.createElement("div");
     shootingstar.classList.add("shootingstar");
@@ -83,12 +81,30 @@ function createShootingStar() {
         shootingstar.remove();
     }, 1000);
 }
-
+//instead of setInterval, use recursive setTimeout for more control
 function spawnShootingStar(){
     createShootingStar();
     setTimeout(spawnShootingStar, Math.random() * 3000 + 2000);
 }
 spawnShootingStar();
+
+//background music control
+const audio = document.getElementById("audio");
+
+audio.addEventListener("ended", function() {
+    if (!document.hidden) {
+        audio.currentTime = 0;
+        audio.play();
+    }
+});
+
+document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+        audio.pause(); 
+    } else {
+        audio.play();  
+    }
+});
 
 
 
