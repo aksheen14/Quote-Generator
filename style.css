@@ -1,0 +1,97 @@
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: white;
+    background: black;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between; /* space between text and image */
+    align-items: flex-start;   
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 50px;
+
+}
+
+#quote{
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 10vw;
+    margin-right: 10vh;
+
+}
+
+#author{
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-style: italic;
+    margin-left: 10vw;
+}
+button{
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #e0e0e0;
+    margin-left:auto;
+    margin-right:auto;
+    display: block;
+}
+button:hover{
+    background-color: #f0f0f0;
+}
+#author-image {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  float: right;       /* this aligns the image to the right */
+  margin-left: 1rem;  /* space between image and text */
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  margin-right: 50px
+}
+
+@keyframes twinkle {
+  0%   { opacity: 0; }
+  30%  { opacity: 1; }
+  70%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes shooting {
+  0%   { opacity: 0; transform: translate(0px, 0px);}
+  30%  { opacity: 1; }
+  70%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(300px, 300px);}
+}
+
+#stars {
+    position: fixed;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+.shootingstar{
+    position: absolute;
+    animation: shooting 1s linear forwards;
+    background-color: whitesmoke;
+    height: 3px;
+    width: 3px;
+}
+.star {
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    background: whitesmoke;
+    border-radius: 75%;
+    animation: twinkle infinite;
+}
