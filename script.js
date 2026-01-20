@@ -72,10 +72,16 @@ function createShootingStar() {
     shootingstar.style.top = Math.random() * 100 + "%";
     const starsContainer = document.getElementById("stars");
     starsContainer.appendChild(shootingstar);
+    const dx = Math.random() * 300 + 100; // 100–400px
+    const dy = Math.random() * 300 + 100;
+    shootingstar.style.setProperty("--dx", dx + "px");
+    shootingstar.style.setProperty("--dy", dy + "px");
+    const angleRad = Math.atan2(dy, dx);
+    const angleDeg = angleRad * (180 / Math.PI);
+    shootingstar.style.transform = `rotate(${angleDeg}deg)`;
     setTimeout(() => {
         shootingstar.remove();
     }, 1000);
-
 }
 
 function spawnShootingStar(){
